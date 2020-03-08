@@ -1,15 +1,10 @@
-process.argv = ['node', 'dist/cli.js'];
-const logSpy = jest.spyOn(console, 'log').mockImplementation(jest.fn());
+import run from '../src';
 
-import { run } from '../src/cli';
-
-describe('cli', () => {
-  beforeEach(() => {
-    logSpy.mockReset();
-  });
-
+describe('index', () => {
   describe('run', () => {
     it('should log a message', () => {
+      const logSpy = jest.spyOn(console, 'log').mockImplementation(jest.fn());
+
       run(['node', 'dist/cli.js']);
 
       expect(logSpy).toHaveBeenCalledTimes(1);
