@@ -1,0 +1,51 @@
+{
+  "name": "@jakesidsmith/tspy",
+  "version": "0.0.0",
+  "description": "TypeScript to Python compiler",
+  "main": "dist/index.js",
+  "bin": {
+    "tspy": "dist/cli.js"
+  },
+  "scripts": {
+    "dist": "rm -rf dist && tsc --project tsconfig.dist.json && chmod +x dist/cli.js",
+    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json,md}'",
+    "prettier-check": "prettier --check '**/*.{ts,tsx,js,jsx,json,md}'",
+    "lint-js": "tslint --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "lint": "npm run prettier-check && npm run typecheck && npm run lint-js",
+    "tests": "jest",
+    "test": "npm run lint && npm run tests -- --coverage --runInBand",
+    "prepublishOnly": "npm test && npm run dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakesidsmith/tspy.git"
+  },
+  "keywords": [
+    "typescript",
+    "python",
+    "compiler",
+    "transpiler",
+    "type",
+    "checking",
+    "py"
+  ],
+  "author": "Jake 'Sid' Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jakesidsmith/tspy/issues"
+  },
+  "homepage": "https://github.com/jakesidsmith/tspy#readme",
+  "dependencies": {
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.2.1",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0"
+  }
+}
