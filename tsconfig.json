@@ -6,8 +6,6 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
     "moduleResolution": "node",
     "jsx": "react",
     "target": "es6",
