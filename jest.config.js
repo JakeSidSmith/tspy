@@ -1,6 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   collectCoverageFrom: ['src/**/*.(js|jsx|ts|tsx)'],
+  coveragePathIgnorePatterns: ['src/cli.ts'],
   coverageThreshold: {
     global: {
       branches: 100,
