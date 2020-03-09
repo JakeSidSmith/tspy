@@ -3,9 +3,8 @@ import { Tree } from 'jargs';
 import * as path from 'path';
 import * as ts from 'typescript';
 
+import { MATCHES_GLOB } from './constants';
 import { ProgramInfo } from './types';
-
-const MATCHES_GLOB = /(?:}|\)|\*+\/?|\.[t]sx?)$/;
 
 export const createProgramInfo = (tree: Tree): ProgramInfo => {
   const cwd = process.cwd();
