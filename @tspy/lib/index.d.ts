@@ -1,8 +1,8 @@
 interface Console {
-  error(message?: any, ...optionalParams: any[]): void;
-  info(message?: any, ...optionalParams: any[]): void;
-  log(message?: any, ...optionalParams: any[]): void;
-  warn(message?: any, ...optionalParams: any[]): void;
+  readonly error(message?: any, ...optionalParams: any[]): void;
+  readonly info(message?: any, ...optionalParams: any[]): void;
+  readonly log(message?: any, ...optionalParams: any[]): void;
+  readonly warn(message?: any, ...optionalParams: any[]): void;
 }
 
-declare var console: Console;
+declare const console: Console;
