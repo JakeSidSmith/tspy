@@ -10,5 +10,6 @@
     "lib": ["ES6"],
     "typeRoots": ["../@tspy"]
   },
-  "include": ["./"]
+  "include": ["./"],
+  "exclude": ["./log-version.ts"]
 }
