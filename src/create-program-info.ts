@@ -3,9 +3,11 @@ import { Tree } from 'jargs';
 import * as path from 'path';
 import * as ts from 'typescript';
 
+import { ProgramInfo } from './types';
+
 const MATCHES_GLOB = /(?:}|\)|\*+\/?|\.[t]sx?)$/;
 
-export const createProgram = (tree: Tree) => {
+export const createProgramInfo = (tree: Tree): ProgramInfo => {
   const cwd = process.cwd();
 
   if (
@@ -58,6 +60,12 @@ export const createProgram = (tree: Tree) => {
   ).options;
 
   const program = ts.createProgram(sourceFileNames, compilerOptions);
+  const checker = program.getTypeChecker();
+  const sourceFiles = program.getSourceFiles();
+
+  if (!sourceFiles.length) {
+    throw new Error('Could not find any source files');
+  }
 
   return {
     projectPath,
@@ -70,5 +78,7 @@ export const createProgram = (tree: Tree) => {
     sourceFileNames,
     compilerOptions,
     program,
+    checker,
+    sourceFiles,
   };
 };
